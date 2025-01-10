@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary-bg: 244 237 235;
+}
+
+.bg-primary {
+  background-color: rgb(var(--primary-bg));
+}
