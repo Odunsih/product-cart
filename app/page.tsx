@@ -16,11 +16,11 @@ import Image from "next/image";
 export default function Home() {
   return (
   <>
-  <section className="bg-primary w-[80%] flex justify-center m-auto rounded-[15px] shadow-[1px_10px_10px_#000]">
-    <main className="w-[80%" >
+  <section className="bg-primary w-[80%] flex justify-center m-[100px_auto] rounded-[5px] shadow-[1px_10px_10px_#000]">
+    <main className="w-[80%] m-[20px]" >
       <h1>Desserts</h1>
       <div className="grid grid-cols-3 gap-10">
-        <div>
+        <div className="w-[100%] h-[150px]">
         <Dish dishes={Waffle} />
         </div>
         <div>
@@ -57,7 +57,7 @@ export default function Home() {
         <p><span>1x</span> @ $5.50 $5.50</p>
         </div>
         <div >
-        <Image className="rounded-[50%] border-gray-900 border-[1px]" src={Cancel} alt="unk" />
+        <Image className="rounded-[50%] border-gray-900 border-[1px] cursor-pointer" src={Cancel} alt="unk" />
         </div>
       </div>
     </menu>
