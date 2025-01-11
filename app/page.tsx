@@ -23,6 +23,7 @@ export default function Home() {
       <div className="grid grid-cols-3 gap-10">
         <div className="w-[100%] h-[150px]">
         <Dish dishes={Waffle} />
+        <button className="btn btn-danger">Add to Cart</button>
         </div>
         <div>
         <Dish dishes={Creme} />
