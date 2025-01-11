@@ -3,9 +3,63 @@
 @tailwind utilities;
 
 :root {
-  --primary-bg: 244 237 235;
+  /* Main Colors */
+  --color-red: 186 48 23; /* hsl(14, 86%, 42%) */
+  --color-green: 24 156 97; /* hsl(159, 69%, 38%) */
+
+  /* Rose Scale */
+  --color-rose-50: 251 248 247; /* hsl(20, 50%, 98%) */
+  --color-rose-100: 244 237 235; /* hsl(13, 31%, 94%) */
+  --color-rose-300: 198 185 180; /* hsl(14, 25%, 72%) */
+  --color-rose-400: 164 148 143; /* hsl(7, 20%, 60%) */
+  --color-rose-500: 123 108 103; /* hsl(12, 20%, 44%) */
+  --color-rose-900: 39 23 19; /* hsl(14, 65%, 9%) */
 }
 
-.bg-primary {
-  background-color: rgb(var(--primary-bg));
+@layer utilities {
+  .custom-red {
+    color: rgb(var(--color-red));
+  }
+  .bg-custom-red {
+    background-color: rgb(var(--color-red));
+  }
+  .custom-green {
+    color: rgb(var(--color-green));
+  }
+  .bg-rose-50 {
+    background-color: rgb(var(--color-rose-50));
+  }
+  .bg-rose-100 {
+    background-color: rgb(var(--color-rose-100));
+  }
+  .bg-rose-300 {
+    background-color: rgb(var(--color-rose-300));
+  }
+  .bg-rose-400 {
+    background-color: rgb(var(--color-rose-400));
+  }
+  .bg-rose-500 {
+    background-color: rgb(var(--color-rose-500));
+  }
+  .bg-rose-900 {
+    background-color: rgb(var(--color-rose-900));
+  }
+  .rose-50 {
+    color: rgb(var(--color-rose-50));
+  }
+  .rose-100 {
+    color: rgb(var(--color-rose-100));
+  }
+  .rose-300 {
+    color: rgb(var(--color-rose-300));
+  }
+  .rose-400 {
+    color: rgb(var(--color-rose-400));
+  }
+  .rose-500 {
+    color: rgb(var(--color-rose-500));
+  }
+  .rose-900 {
+    color: rgb(var(--color-rose-900));
+  }
 }
