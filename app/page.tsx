@@ -12,6 +12,8 @@ import Cancel from '../public/assets/images/icon-remove-item.svg'
 import Carbon from '../public/assets/images/icon-carbon-neutral.svg'
 import Image from "next/image";
 import Button from "@/component/Button";
+import Descriptions from "@/component/Descriptions";
+import Counter from "@/component/Counter";
 
 
 
@@ -23,66 +25,74 @@ export default function Home() {
       <h1 className="font-bold text-[20px]">Desserts</h1>
       <div className="grid grid-cols-3 gap-5">
         <div className="w-[100%] h-[150px]">
-          <Dish dishes={Waffle} />
-          <button
-        
-        className="
-          font-bold 
-          bg-rose-50 
-          p-[8px_20px] 
-          text-[14px] 
-          m-[0_15px] 
-          w-[80%] 
-          rounded-[50px] 
-          relative 
-          bottom-6 
-          flex 
-          items-center 
-          justify-center 
-          gap-2
-        "
-      >
-        {/* <Image src={Cart} alt="cart" width={20} height={20} /> */}
-        Add to Cart
-      </button>
-          {/* <Button /> */}
-          <div className="relative">
-            <p>Waffle</p>
-            <h3>Waffle with Berries</h3>
-            <h3 className="">$6.50</h3>
+          <Dish dishes={Waffle} alt="waffle" />
+          <Counter NummberItem={1} />
+          <Button />
+          <div>
+          <Descriptions foodName="Waffle" Descrip="Waffle with Berries" Price={6.50} />
           </div>
         </div>
         <div>
-          <Dish dishes={Creme} />
-          {/* <Button /> */}
+          <Dish dishes={Creme} alt="creme" />
+          <Counter NummberItem={1} />
+          <Button />
+          <div>
+            <Descriptions foodName="Creme Brule" Descrip="Vanilla Bean Creme Brule" Price={7.00} />
+           </div>
         </div>
         <div>
-          <Dish dishes={Macaron} />
-          {/* <Button /> */}
+          <Dish dishes={Macaron} alt="macaron" />
+          <Counter NummberItem={1} />
+          <Button />
+          <div>
+            <Descriptions foodName="Macaron" Descrip="Macaron Mix of Five" Price={8.00} />
+           </div>
         </div>
         <div>
-          <Dish dishes={Tiramisu} />
-          {/* <Button /> */}
+          <Dish dishes={Tiramisu} alt="tiramisu" />
+          <Counter NummberItem={1} />
+          <Button />
+          <div>
+            <Descriptions foodName="Tiramisu" Descrip="Classic Tiramisu" Price={5.50} />
+           </div>
         </div>
         <div>
-          <Dish dishes={Baklava} />
-          {/* <Button /> */}
+          <Dish dishes={Baklava} alt="baklava" />
+          <Counter NummberItem={1} />
+          <Button />
+          <div>
+            <Descriptions foodName="Baklava" Descrip="Pistachio Baklava" Price={4.00} />
+           </div>
         </div>
         <div>
-          <Dish dishes={Meringue} />
-          {/* <Button /> */}
+          <Dish dishes={Meringue} alt="meringue" />
+          <Counter NummberItem={1} />
+          <Button />
+          <div>
+            <Descriptions foodName="Pie" Descrip="Lemon Meringue Pie" Price={5.00} />
+           </div>
         </div>
         <div>
-          <Dish dishes={Cake} />
-          {/* <Button /> */}
+          <Dish dishes={Cake} alt="cake" />
+          <Counter NummberItem={1} />
+          <Button />
+          <div>
+            <Descriptions foodName="Cake" Descrip="Red Velvet Cake" Price={4.50} />
+           </div>
         </div>
         <div>
-          <Dish dishes={Brownie} />
-          {/* <Button /> */}
+          <Dish dishes={Brownie} alt="brownie" />
+          <Counter NummberItem={1} />
+          <Button />
+          <div>
+            <Descriptions foodName="Brownie" Descrip="Salted Caramel Brownie" Price={5.50} />
+           </div>
         </div>
         <div>
-          <Dish dishes={Panna} />
-          {/* <Button /> */}
+          <Dish dishes={Panna} alt="panna" />
+          <Counter NummberItem={1} />
+          <Button />
+          <Descriptions foodName="Panna Cotta" Descrip="Vanilla Panna Cotta" Price={6.50} />
         </div>
       </div>
     </main>

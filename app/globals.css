@@ -63,3 +63,25 @@
     color: rgb(var(--color-rose-900));
   }
 }
+
+body {
+  font-family: 'RedHat';
+}
+
+.addToCart, .counter {
+  margin: 0 15px;
+  position: relative;
+  bottom: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.counter {
+  padding: 7px;
+  height: 29px;
+}
+
+@font-face {
+  font-family: 'RedHat';
+  src: url(../public/assets/fonts/RedHatText-VariableFont_wght.ttf);
+}
