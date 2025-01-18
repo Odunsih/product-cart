@@ -1,27 +1,17 @@
-'use client'
-import Image from 'next/image'
-import Cart from '../public/assets/images/icon-add-to-cart.svg'
-import { useState } from 'react'
+'use client';
+import Image from 'next/image';
+import Cart from '../public/assets/images/icon-add-to-cart.svg';
 
 interface ButtonProps {
-  onClick?: () => void;
+  onAddToCart: () => void;
 }
 
-const Button = ({ onClick }: ButtonProps) => {
-  const [isVisible, setIsVisible] = useState(true);
-
-  const handleClick = () => {
-    setIsVisible(false);
-    onClick?.();
-  };
-
-  if (!isVisible) return null;
-
+const Button = ({ onAddToCart }: ButtonProps) => {
   return (
     <div>
       <button
-        onClick={handleClick}
-        className=" addToCart
+        onClick={onAddToCart}
+        className="addToCart
           font-bold 
           bg-rose-50 
           p-[8px_20px] 
@@ -41,7 +31,7 @@ const Button = ({ onClick }: ButtonProps) => {
         Add to Cart
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

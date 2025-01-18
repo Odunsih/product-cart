@@ -1,3 +1,4 @@
+'use client'
 import Dish from "@/component/Dish";
 import Baklava from '../public/assets/images/image-baklava-thumbnail.jpg'
 import Brownie from '../public/assets/images/image-brownie-thumbnail.jpg'
@@ -14,86 +15,77 @@ import Image from "next/image";
 import Button from "@/component/Button";
 import Descriptions from "@/component/Descriptions";
 import Counter from "@/component/Counter";
+import { useState } from "react";
 
 
 
 export default function Home() {
+  const dishes = [
+    { id: 1, image: Waffle, name: "Waffle", description: "Waffle with Berries", price: 6.5 },
+    { id: 2, image: Creme, name: "Creme Brulee", description: "Vanilla Bean Creme Brulee", price: 7.0 },
+    { id: 3, image: Macaron, name: "Macaron", description: "Macaron Mix of Five", price: 8.0 },
+    { id: 4, image: Tiramisu, name: "Tiramisu", description: "Classic Tiramisu", price: 5.5 },
+    { id: 5, image: Baklava, name: "Baklava", description: "Pistachio Baklava", price: 4.0 },
+    { id: 6, image: Meringue, name: "Pie", description: "Lemon Meringue Pie", price: 5.0 },
+    { id: 7, image: Cake, name: "Cake", description: "Red Velvet Cake", price: 4.5 },
+    { id: 8, image: Brownie, name: "Brownie", description: "Salted Caramel Brownie", price: 5.5 },
+    { id: 9, image: Panna, name: "Panna Cotta", description: "Vanilla Panna Cotta", price: 6.5 },
+  ];
+
+  const [state, setState] = useState(
+    dishes.map(() => ({ showCounter: false, count: 0 }))
+  );
+
+  const handleAddToCart = (index) => {
+    const updatedState = [...state];
+    updatedState[index] = { showCounter: true, count: 1 };
+    setState(updatedState);
+  };
+
+  const handleIncrement = (index) => {
+    const updatedState = [...state];
+    updatedState[index].count += 1;
+    setState(updatedState);
+  };
+
+  const handleDecrement = (index) => {
+    const updatedState = [...state];
+    const newCount = updatedState[index].count - 1;
+    updatedState[index] = {
+      ...updatedState[index],
+      count: newCount,
+      showCounter: newCount > 0,
+    };
+    setState(updatedState);
+  };
   return (
   <>
   <section className="bg-rose-100 w-[80%] flex justify-center m-[100px_auto] rounded-[5px] shadow-[1px_10px_10px_#000] p-10">
     <main className="w-[80%] m-[20px]" >
       <h1 className="font-bold text-[20px]">Desserts</h1>
       <div className="grid grid-cols-3 gap-5">
-        <div className="w-[100%] h-[150px]">
-          <Dish dishes={Waffle} alt="waffle" />
-          <Counter NummberItem={1} />
-          <Button />
-          <div>
-          <Descriptions foodName="Waffle" Descrip="Waffle with Berries" Price={6.50} />
-          </div>
-        </div>
-        <div>
-          <Dish dishes={Creme} alt="creme" />
-          <Counter NummberItem={1} />
-          <Button />
-          <div>
-            <Descriptions foodName="Creme Brule" Descrip="Vanilla Bean Creme Brule" Price={7.00} />
-           </div>
-        </div>
-        <div>
-          <Dish dishes={Macaron} alt="macaron" />
-          <Counter NummberItem={1} />
-          <Button />
-          <div>
-            <Descriptions foodName="Macaron" Descrip="Macaron Mix of Five" Price={8.00} />
-           </div>
-        </div>
-        <div>
-          <Dish dishes={Tiramisu} alt="tiramisu" />
-          <Counter NummberItem={1} />
-          <Button />
-          <div>
-            <Descriptions foodName="Tiramisu" Descrip="Classic Tiramisu" Price={5.50} />
-           </div>
-        </div>
-        <div>
-          <Dish dishes={Baklava} alt="baklava" />
-          <Counter NummberItem={1} />
-          <Button />
-          <div>
-            <Descriptions foodName="Baklava" Descrip="Pistachio Baklava" Price={4.00} />
-           </div>
-        </div>
-        <div>
-          <Dish dishes={Meringue} alt="meringue" />
-          <Counter NummberItem={1} />
-          <Button />
-          <div>
-            <Descriptions foodName="Pie" Descrip="Lemon Meringue Pie" Price={5.00} />
-           </div>
-        </div>
-        <div>
-          <Dish dishes={Cake} alt="cake" />
-          <Counter NummberItem={1} />
-          <Button />
-          <div>
-            <Descriptions foodName="Cake" Descrip="Red Velvet Cake" Price={4.50} />
-           </div>
-        </div>
-        <div>
-          <Dish dishes={Brownie} alt="brownie" />
-          <Counter NummberItem={1} />
-          <Button />
-          <div>
-            <Descriptions foodName="Brownie" Descrip="Salted Caramel Brownie" Price={5.50} />
-           </div>
-        </div>
-        <div>
-          <Dish dishes={Panna} alt="panna" />
-          <Counter NummberItem={1} />
-          <Button />
-          <Descriptions foodName="Panna Cotta" Descrip="Vanilla Panna Cotta" Price={6.50} />
-        </div>
+      {dishes.map((dish, index) => (
+            <div key={dish.id} className="w-[100%] h-[150px]">
+              <Dish dishes={dish.image} alt={dish.name} />
+              {state[index].showCounter ? (
+                <Counter
+                  count={state[index].count}
+                  onIncrement={() => handleIncrement(index)}
+                  onDecrement={() => handleDecrement(index)}
+                />
+              ) : (
+                <Button onAddToCart={() => handleAddToCart(index)} />
+              )}
+              <div>
+              <Descriptions
+                foodName={dish.name}
+                Descrip={dish.description}
+                Price={dish.price}
+              />
+              </div>
+            </div>
+          ))}
+       
       </div>
     </main>
     <menu className="w-[20%] bg-rose-50 p-[10px] m-[10px] rounded-[10px]">
